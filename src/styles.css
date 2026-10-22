@@ -1,0 +1,108 @@
+@import "@fontsource/vazirmatn/400.css";
+@import "@fontsource/vazirmatn/500.css";
+@import "@fontsource/vazirmatn/600.css";
+@import "@fontsource/vazirmatn/700.css";
+@import "@fontsource/ibm-plex-mono/400.css";
+@import "@fontsource/ibm-plex-mono/500.css";
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Vazirmatn", "DejaVu Sans", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --color-canvas: #10130f;
+  --color-panel: #191e16;
+  --color-panel-2: #242a1c;
+  --color-bone: #ebe6d8;
+  --color-mute: #b3ad96;
+  --color-faint: #948e7c;
+  --color-line: #3a4032;
+  --color-brass: #e0b15a;
+  --color-stamp: #ff7d66;
+
+  --color-paper: #f4f0e6;
+  --color-ink: #1a1c15;
+  --color-ink-soft: #4e4a40;
+  --color-rule: #ddd4c4;
+  --color-brass-ink: #8a5a10;
+  --color-stamp-ink: #9f2f1c;
+}
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-canvas);
+    color: var(--color-bone);
+    font-family: var(--font-sans);
+    line-height: 1.5;
+  }
+
+  ::selection {
+    background: var(--color-brass);
+    color: var(--color-canvas);
+  }
+
+  input[type="range"] {
+    appearance: none;
+    height: 1.75rem;
+    background: transparent;
+  }
+
+  input[type="range"]:focus-visible {
+    outline: 2px solid var(--color-brass);
+    outline-offset: 2px;
+  }
+
+  input[type="range"]::-webkit-slider-runnable-track {
+    height: 2px;
+    background: var(--color-line);
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-top: -0.6rem;
+    background: var(--color-brass);
+  }
+
+  input[type="range"]::-moz-range-track {
+    height: 2px;
+    background: var(--color-line);
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 0;
+    background: var(--color-brass);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+  }
+}
